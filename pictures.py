@@ -1,16 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-earth = pd.read_csv('earth.csv')
-sun = pd.read_csv('sun.csv')
-
-earth_p = [earth['t'], earth['x'], earth['y'], earth['z']]
-sun_p = [sun['t'], sun['x'], sun['y'], sun['z']]
+def plot(num, name):
+    planet = pd.read_csv('data/'+str(num)+".csv")
+    ax.plot(planet['x'], planet['y'], planet['t'], label=name)
 
 ax = plt.figure().add_subplot(projection="3d")
 
-ax.plot(earth_p[1], earth_p[2], earth_p[0], label='earth orbit')
-ax.plot(sun_p[1], sun_p[2], sun_p[0], label='sun orbit')
+plot(2, "moon")
 
 ax.axes.set_xlabel("x-distance (m)")
 ax.axes.set_ylabel("y-distance (m)")
