@@ -74,12 +74,13 @@ fn update_pos(body: &mut Body) {
 
 fn main() {
     let mut sun = body_init(4.385*f64::powi(10.0, 30), [0.0; 3], [0.0; 3]);
-    let mut earth = body_init(5.972*f64::powi(10.0, 24), [1.0*f64::powi(10.0, 11), 0.0, 0.0], [0.0, 35000.0, 0.0,]);
+    let mut earth = body_init(5.972*f64::powi(10.0, 24), [1.49*f64::powi(10.0, 11), 0.0, 0.0], [0.0, 45000.0, 0.0,]);
     
     let mut earth_pos_hist: Vec<[f64; 3]> = Vec::new();
     let mut sun_pos_hist: Vec<[f64; 3]> = Vec::new();
     
     for _i in 0..35064 {
+        // the actual sim
         update_accel(&mut earth, &sun);
         update_accel(&mut sun, &earth);
         update_pos(&mut earth);
@@ -88,6 +89,8 @@ fn main() {
         sun_pos_hist.push(sun.position);
     }
 
+
+    //writing the data generated
     let mut earth_data = File::create("earth.csv").expect("Unable to create file");
     write!(earth_data, "t,x,y,z, \n").expect("write fail lol");   
     for i in 0..earth_pos_hist.len(){    

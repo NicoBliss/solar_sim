@@ -15,6 +15,7 @@ ax.plot(sun_p[1], sun_p[2], sun_p[0], label='sun orbit')
 ax.axes.set_xlabel("x-distance (m)")
 ax.axes.set_ylabel("y-distance (m)")
 ax.axes.set_zlabel("time (s)")
+#ax.axis('equal')
 
 ax.legend()
 plt.show()
