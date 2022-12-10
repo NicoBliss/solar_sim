@@ -1,5 +1,5 @@
 # ignore all data
-*.csv
+data/
 
 # ignore all of vs code's nonsense
-/.vscode
+.vscode/

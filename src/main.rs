@@ -91,7 +91,7 @@ fn main() {
 
 
     //writing the data generated
-    let mut earth_data = File::create("earth.csv").expect("Unable to create file");
+    let mut earth_data = File::create("data/earth.csv").expect("Unable to create file");
     write!(earth_data, "t,x,y,z, \n").expect("write fail lol");   
     for i in 0..earth_pos_hist.len(){    
         write!(earth_data, "{},", TIMESTEP*(i as f64)).expect("write fail lol");   
@@ -101,7 +101,7 @@ fn main() {
         write!(earth_data, "\n").expect("write fail lol"); 
     }
 
-    let mut sun_data = File::create("sun.csv").expect("Unable to create file");
+    let mut sun_data = File::create("data/sun.csv").expect("Unable to create file");
     write!(sun_data, "t,x,y,z, \n").expect("write fail lol");   
     for i in 0..sun_pos_hist.len(){
         write!(sun_data, "{},", TIMESTEP*(i as f64)).expect("write fail lol"); 
